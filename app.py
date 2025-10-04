@@ -17,7 +17,6 @@ WATCH = {}
 def health_check(connection: ServerConnection, request):
     if request.path == "/healthz":
         return connection.respond(http.HTTPStatus.OK, "OK\n")
-    return connection.respond(http.HTTPStatus.SERVICE_UNAVAILABLE, "No\n")
 
 
 async def play(
