@@ -157,13 +157,13 @@ async def handler(websocket: ServerConnection):
 
 
 async def main():
-    # port = int(os.environ.get("PORT", "8001"))
-    # async with serve(handler, "", port, process_request=health_check) as server:
-    #     loop = asyncio.get_running_loop()
-    #     loop.add_signal_handler(signal.SIGTERM, server.close)
-    #     await server.wait_closed()
-    async with serve(handler, "", 8001) as server:
-        await server.serve_forever()
+    port = int(os.environ.get("PORT", "8001"))
+    async with serve(handler, "", port, process_request=health_check) as server:
+        loop = asyncio.get_running_loop()
+        loop.add_signal_handler(signal.SIGTERM, server.close)
+        await server.wait_closed()
+    # async with serve(handler, "", 8001) as server:
+    #     await server.serve_forever()
 
 
 if __name__ == "__main__":
